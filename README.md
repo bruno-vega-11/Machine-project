@@ -23,20 +23,21 @@ El presente proyecto tiene como principal objetivo establecer con evidencia qué
 
 ## Estructura del Repositorio 
 
+```
 .
-├── README.md                  
-├── requirements.txt           # Dependencias de Python
-├── .gitignore           
+├── README.md
+├── requirements.txt          # Dependencias de Python
+├── .gitignore
 │
 ├── data/
-│   ── framingham.csv          # dataset de pacientes
-|
-├── figures/                   # Imágenes generadas por los notebooks
-|
-├── notebooks/
-│    ── 01_eda.ipynb           # comprensión del problema a detalle y EDA
-|    ── nb_utilis.py           # dependencias
+│   └── framingham.csv        # Dataset de pacientes
 │
+├── figures/                  # Imágenes generadas por los notebooks
+│
+└── notebooks/
+    ├── 01_eda.ipynb          # Comprensión del problema y EDA
+    └── nb_utils.py           # Funciones auxiliares
+```
 
 ## Instrucciones para ejecutar el código
 
