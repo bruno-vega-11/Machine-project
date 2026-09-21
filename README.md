@@ -9,10 +9,9 @@ Integrantes:
   
 ## Descripción del Proyecto
 
-Este proyecto usa el conjunto de datos del Framingham Heart Study, un estudio de cohorte en Framingham, Massachusetts (EE. UU.) que sigue a los participantes en el tiempo para registrar quién desarrolla *enfermedad cardiovascular*. El dataset contiene registros de pacientes con atributos demográficos, de hábitos, clínicos y de historial médico, todos obtenibles en un chequeo de rutina. 
+Este proyecto documenta la primera etapa: la comprensión del problema y el análisis exploratorio del conjunto de datos del Framingham Heart Study, un estudio de cohorte en Framingham, Massachusetts (EE. UU.) que sigue a los participantes en el tiempo para registrar quién desarrolla *enfermedad cardiovascular*. El dataset contiene registros de pacientes con atributos demográficos, de hábitos, clínicos y de historial médico, todos obtenibles en un chequeo de rutina. 
 
-El Framingham Heart Study es un estudio de cohorte que reclutó personas de la comunidad, sin enfermedad cardiovascular manifiesta en el momento del examen inicial, y las siguió en el tiempo para registrar quién desarrollaba la enfermedad. Todas sus variables son obtenibles en un chequeo de rutina — no se requieren exámenes invasivos ni de esfuerzo — y el objetivo, predecir un evento futuro y no uno ya ocurrido, es exactamente el problema de tamizaje y prevención primaria planteado arriba.
-
+Este estudio reclutó personas de la comunidad, sin enfermedad cardiovascular manifiestada en el momento del examen inicial, y las siguió en el tiempo para registrar quién desarrollaba la enfermedad. Todas sus variables son obtenibles en un chequeo de rutina (no se requieren exámenes invasivos ni de esfuerzo).
 
 ## Objetivos 
 
