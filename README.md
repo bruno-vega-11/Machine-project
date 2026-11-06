@@ -1,56 +1,82 @@
-# Proyecto 1
-# Predicción del riesgo de enfermedad coronaria a 10 años Machine Learning 
+# Predicción de riesgo coronario a 10 años con Machine Learning
 
-Integrantes: 
+Proyecto del curso de Machine Learning, basado en el dataset del **Framingham Heart Study**.
+
+## Problema
+
+Las enfermedades cardiovasculares son la primera causa de muerte en el mundo. La forma más
+efectiva de reducirlas es **identificar a personas sanas con alto riesgo futuro** para intervenir a
+tiempo (cambios de hábitos, control de presión o colesterol), antes de que ocurra un evento.
+
+El riesgo depende de muchos factores a la vez (edad, presión arterial, glucosa, tabaquismo, entre
+otros) y ninguno por separado basta para anticiparlo. Por eso se usa Machine Learning: para
+aprender de los datos cómo combinar esos factores y estimar el riesgo de cada persona.
+
+## Objetivo
+
+Estimar la probabilidad de que una persona desarrolle enfermedad coronaria en los 10 años
+siguientes a partir de los datos de un chequeo de rutina, e identificar qué variables explican ese
+riesgo.
+
+## Integrantes
+
 - Valeria Valentina Ríos Gómez
 - Luis Enrique Cahuana García
 - Bruno Gonzalo Vega Napan
 - Nicolas Valentino Días Flores
-  
-## Descripción del Proyecto
 
-Este proyecto documenta la primera etapa: la comprensión del problema y el análisis exploratorio del conjunto de datos del Framingham Heart Study, un estudio de cohorte en Framingham, Massachusetts (EE. UU.) que sigue a los participantes en el tiempo para registrar quién desarrolla *enfermedad cardiovascular*. El dataset contiene registros de pacientes con atributos demográficos, de hábitos, clínicos y de historial médico, todos obtenibles en un chequeo de rutina. 
-
-Este estudio reclutó personas de la comunidad, sin enfermedad cardiovascular manifiestada en el momento del examen inicial, y las siguió en el tiempo para registrar quién desarrollaba la enfermedad. Todas sus variables son obtenibles en un chequeo de rutina (no se requieren exámenes invasivos ni de esfuerzo).
-
-## Objetivos 
-
-### Objetivo General Parte 1
-
-El presente proyecto tiene como principal objetivo establecer con evidencia qué contiene la tabla, qué problemas de calidad presenta, qué variables se relacionan con el riesgo cardiovascular y qué riesgos de sesgo o fuga de información (data leakage) deben controlarse en la etapa de modelado.
-
-
-## Estructura del Repositorio 
+## Estructura del repositorio
 
 ```
-.
+proyecto-heart-disease/
 ├── README.md
-├── requirements.txt          # Dependencias de Python
+├── requirements.txt       # dependencias de Python
 ├── .gitignore
-│
 ├── data/
-│   └── framingham.csv        # Dataset de pacientes
-│
-├── figures/                  # Imágenes generadas por los notebooks
-│
-└── notebooks/
-    ├── 01_eda.ipynb          # Comprensión del problema y EDA
-    └── nb_utils.py           # Funciones auxiliares
+│   ├── README.md          # fuente, licencia y diccionario de variables
+│   └── framingham.csv     # dataset (4 240 filas x 16 columnas)
+├── notebooks/
+│   └── 01-eda.ipynb       # análisis exploratorio de datos
+├── src/
+│   ├── __init__.py
+│   ├── config.py          # rutas, grupos de variables, etiquetas y colores
+│   └── plotting.py        # estilo de gráficos y guardado de figuras
+└── results/
+    └── figures/           # figuras generadas por los notebooks
 ```
 
-## Instrucciones para ejecutar el código
+## Cómo ejecutar
 
-Requisitos previos
+Requiere Python 3.10 o superior.
 
-- Python 3.10 o mayor
-- Jupyter Notebook o extensión
+1. Clonar el repositorio y crear un entorno virtual:
 
-Clonar el repositorio localmente y ejecuta las celdas en orden. 
+   ```sh
+   git clone <url-del-repositorio>
+   cd proyecto-heart-disease
+   python -m venv .venv
+   ```
 
+2. Activar el entorno e instalar las dependencias:
 
+   ```sh
+   # Windows
+   .venv\Scripts\activate
+   # Linux / macOS
+   source .venv/bin/activate
 
+   pip install -r requirements.txt
+   ```
 
+3. Abrir y ejecutar el notebook:
 
+   ```sh
+   jupyter lab notebooks/01-eda.ipynb
+   ```
 
+   O ejecutarlo completo desde la terminal, lo que también regenera las figuras de
+   `results/figures/`:
 
-
+   ```sh
+   jupyter nbconvert --to notebook --execute --inplace notebooks/01-eda.ipynb
+   ```
