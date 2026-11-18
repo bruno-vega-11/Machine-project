@@ -36,14 +36,20 @@ proyecto-heart-disease/
 │   ├── README.md          # fuente, licencia y diccionario de variables
 │   └── framingham.csv     # dataset (4 240 filas x 16 columnas)
 ├── notebooks/
-│   └── 01-eda.ipynb       # análisis exploratorio de datos
+│   ├── 01-eda.ipynb       # análisis exploratorio de datos
+│   └── 02-modelo.ipynb    # preprocesamiento, modelos, evaluación, interpretación y equidad
 ├── src/
 │   ├── __init__.py
 │   ├── config.py          # rutas, grupos de variables, etiquetas y colores
-│   └── plotting.py        # estilo de gráficos y guardado de figuras
+│   ├── plotting.py        # estilo de gráficos y guardado de figuras
+│   └── preprocessing.py   # presión de pulso, imputación de faltantes y escalado (pipeline del proyecto)
 └── results/
-    └── figures/           # figuras generadas por los notebooks
+    ├── figures/           # figuras generadas por los notebooks
+    └── tables/            # métricas y tablas de resultados (CSV) usadas en el informe
 ```
+
+Los notebooks se ejecutan en orden: `01-eda.ipynb` y luego `02-modelo.ipynb`. El segundo tarda unos
+3 minutos (la búsqueda de hiperparámetros del Random Forest es la parte más lenta).
 
 ## Cómo ejecutar
 
@@ -68,15 +74,20 @@ Requiere Python 3.10 o superior.
    pip install -r requirements.txt
    ```
 
-3. Abrir y ejecutar el notebook:
+3. Abrir y ejecutar los notebooks, en orden:
 
    ```sh
    jupyter lab notebooks/01-eda.ipynb
+   jupyter lab notebooks/02-modelo.ipynb
    ```
 
-   O ejecutarlo completo desde la terminal, lo que también regenera las figuras de
-   `results/figures/`:
+   O ejecutarlos completos desde la terminal, lo que también regenera las figuras de
+   `results/figures/` y las tablas de `results/tables/`:
 
    ```sh
    jupyter nbconvert --to notebook --execute --inplace notebooks/01-eda.ipynb
+   jupyter nbconvert --to notebook --execute --inplace notebooks/02-modelo.ipynb
    ```
+
+   Todos los resultados son reproducibles: el *split*, la validación cruzada y los modelos usan la
+   semilla fija `SEED = 42` de `src/config.py`.
